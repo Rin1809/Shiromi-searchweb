@@ -7,8 +7,8 @@
 # ------------------------------------------
 # Bỏ qua thư mục node_modules ở cả client và server
 # Đường dẫn tính từ gốc của repo shiromi-website
-shiromi-web/client/node_modules/
-shiromi-web/server/node_modules/
+/client/node_modules/
+/server/node_modules/
 # Bỏ qua cả thư mục node_modules ở gốc (nếu có)
 /node_modules/
 
