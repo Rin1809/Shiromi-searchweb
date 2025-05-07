@@ -1,0 +1,118 @@
+/* --- START OF FILE website/client/src/components/styles/SearchBar.css --- */
+.search-bar-container {
+  display: flex;
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
+  margin-top: 1rem;
+  width: 100%;
+  max-width: 550px;
+  transition: margin-top var(--search-move-duration) ease-in-out;
+}
+
+/* Khi search bar ở trên cùng */
+.AppContainer.search-top .search-bar-container {
+    margin-top: 0;
+}
+
+.search-bar-container input[type="text"] {
+  flex-grow: 1;
+  padding: 0.8rem 1.2rem;
+  border: 1px solid rgba(var(--border-color-rgb), 0.4);
+  border-radius: 25px;
+  background-color: transparent;
+  color: var(--text-color);
+  font-size: 1rem;
+  outline: none;
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  /* Glow mặc định - Rất nhẹ, chỉ blur */
+  box-shadow: 0 0 50px 10px rgba(var(--glow-color-rgb), 0.15); /* Blur nhẹ, không spread, rất mờ */
+  transition: border-color 0.2s ease-in-out, box-shadow 0.4s ease-in-out, background-color 0.2s ease; /* Tăng duration cho shadow */
+}
+
+.search-bar-container input[type="text"]:focus {
+  border-color: var(--primary-color);
+  background-color: rgba(var(--card-background-rgb), 0.15);
+  /* Glow mạnh hơn khi focus - Blur lớn, spread nhỏ, opacity vừa phải */
+  box-shadow: 0 0 25px 6px rgba(var(--glow-color-rgb), 0.55); /* Thay đổi giá trị blur, spread, opacity */
+  /* Bỏ focus ring mặc định của trình duyệt nếu muốn chỉ dùng glow */
+  /* outline: none; */
+}
+
+
+.search-bar-container input[type="text"]::placeholder {
+  color: var(--subtext-color);
+  opacity: 0.7;
+}
+
+/* --- Style cho nút icon kính lúp --- */
+.search-button {
+  padding: 0;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(var(--primary-color-rgb), 0.5);
+  border-radius: 50%;
+  background-color: transparent;
+  color: var(--primary-color);
+  cursor: pointer;
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  /* Glow mặc định - Rất nhẹ, chỉ blur */
+  box-shadow: 0 0 10px 0px rgba(var(--glow-color-rgb), 0.15); /* Blur nhẹ, không spread, rất mờ */
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease, color 0.2s, border-color 0.2s, box-shadow 0.4s ease-in-out; /* Tăng duration */
+}
+
+.search-button svg {
+    display: block;
+}
+
+.search-button:hover:not(:disabled) {
+  background-color: rgba(var(--primary-color-rgb), 0.15);
+  border-color: var(--secondary-color);
+  color: var(--secondary-color);
+  transform: scale(1.05);
+  /* Glow mạnh hơn khi hover - Blur lớn, spread nhỏ, opacity vừa phải */
+  box-shadow: 0 0 25px 6px rgba(var(--glow-color-rgb), 0.55); /* Thay đổi giá trị blur, spread, opacity */
+}
+
+ .search-button:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.search-button:disabled {
+  background-color: transparent;
+  border-color: rgba(var(--border-color-rgb), 0.3);
+  color: var(--border-color);
+  cursor: not-allowed;
+  opacity: 0.5;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: none;
+}
+/* ----------------------------------- */
+
+
+/* Responsive */
+@media (max-width: 600px) {
+    .search-button {
+        width: 40px;
+        height: 40px;
+        border-width: 1px;
+    }
+    .search-button svg {
+        width: 18px;
+        height: 18px;
+    }
+    .search-bar-container input[type="text"] {
+        padding: 0.7rem 1rem;
+        font-size: 0.95rem;
+    }
+    .search-bar-container {
+        gap: 0.6rem;
+    }
+}
+/* --- END OF FILE website/client/src/components/styles/SearchBar.css --- */

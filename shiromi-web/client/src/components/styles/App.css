@@ -1,0 +1,450 @@
+/* --- START OF FILE website/client/src/components/styles/App.css --- */
+:root {
+
+  --glow-color: #FFE0E0;
+  --glow-color-rgb: 255, 224, 224; /* Thêm RGB */
+  --glow-color-rgba-strong: rgba(255, 224, 224, 0.85); /* Brighter base */
+  --glow-color-rgba-wide: rgba(255, 224, 224, 0.6);  /* Wider, softer spread */
+  --glow-blur-base: 40px; /* Increased base blur */
+  --glow-blur-wide: 25px; /* Increased wide blur */
+  --glow-spread-base: 4px; /* Increased base spread */
+  --glow-spread-wide: 6px; /* Increased wide spread */
+
+  /* --- Màu sắc Theme Vũ Trụ & Catppuccin Macchiato --- */
+  --background-color: #0c0e1a;
+  --background-color-rgb: 12, 14, 26; /* Thêm RGB */
+  --light-source-color-1: #FFFFFF;
+  --light-source-color-2: #525252;
+  --light-source-color-3: #1C1C1C;
+
+  --text-color: #cdd6f4;
+  --text-color-rgb: 205, 214, 244; /* Thêm RGB */
+  --card-background: #1e1e2e;
+  --card-background-rgb: 30, 30, 46; /* Thêm RGB */
+  --border-color: #45475a;
+  --border-color-rgb: 69, 71, 90; /* Thêm RGB */
+  --primary-color: #ffaaaa; /* Mauve */
+  --primary-color-rgb: 179, 135, 211; /* Thêm RGB */
+  --secondary-color: #f5c2e7; /* Pink */
+  --secondary-color-rgb: 245, 194, 231; /* Thêm RGB */
+  --error-color: #f38ba8;   /* Red */
+  --error-color-rgb: 243, 139, 168; /* Thêm RGB */
+  --success-color: #a6e3a1; /* Green */
+  --loading-color: #f9e2af; /* Yellow */
+  --info-color: #89b4fa;    /* Blue */
+  --subtext-color: #a6adc8; /* Subtext0 */
+  --subtext-color-rgb: 166, 173, 200; /* Thêm RGB */
+
+  /* --- Thời gian animation --- */
+  --intro-stage-fade-duration: 0.6s;
+  --cat-pulse-duration: 1.5s;
+  --wow-total-duration: 1.0s;
+  --wow-avatar-appear-duration: 0.6s;
+  --wow-text-slide-duration: 0.7s;
+  --wow-avatar-move-delay: 0.15s;
+  --wow-text-appear-delay: 0.3s;
+  --wow-move-distance: 80px;
+  --wow-hide-duration: 0.5s;
+  --content-fade-in-duration: 0.6s;
+  --search-move-duration: 0.4s;
+  --results-fade-duration: 0.5s;
+}
+
+/* --- BODY BACKGROUND --- */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background-color);
+  background-image:
+    linear-gradient(
+      204deg,
+      var(--light-source-color-1) 0%,
+      var(--light-source-color-2) 0%,
+      var(--light-source-color-3) 51%,
+      var(--background-color) 85%
+    );
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: var(--text-color);
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* --- Định vị Particles --- */
+#tsparticles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: transparent !important;
+}
+
+.AppWrapper {
+  position: relative; 
+  min-height: 100vh;
+}
+
+/* --- App Container chính --- */
+.App {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1; /* Đảm bảo nội dung App trên particles */
+}
+
+/* --- Styling cho ScanPage container và transitions --- */
+.AppContainer {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: padding-top var(--search-move-duration) ease-in-out, justify-content var(--search-move-duration) ease-in-out, align-items var(--search-move-duration) ease-in-out;
+}
+
+.AppContainer.intro-active,
+.AppContainer.search-centered {
+  justify-content: center;
+  align-items: center;
+  padding-top: 0;
+}
+
+.AppContainer.search-top {
+  justify-content: flex-start;
+  align-items: stretch;
+  padding-top: 3vh;
+}
+
+/* --- Intro Stage Base Styling --- */
+.intro-stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  width: 100%;
+  opacity: 0;
+  transition: opacity var(--intro-stage-fade-duration) ease-in-out;
+  pointer-events: none;
+  min-height: 150px;
+}
+.intro-stage.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+.intro-stage.hiding {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.intro-stage.cat-stage.visible .cat-icon {
+  text-shadow: 0 0 var(--glow-blur-base) var(--glow-color-rgba-strong),
+               0 0 var(--glow-blur-wide) var(--glow-color-rgba-wide);
+  filter: drop-shadow(0 0 8px var(--glow-color-rgba-strong));
+}
+
+.intro-stage.server-stage-wow.visible .server-avatar-wow {
+  filter: drop-shadow(0 0 var(--glow-blur-base) var(--glow-color));
+}
+
+.intro-stage.server-stage-wow.visible .server-name-wow {
+  text-shadow: 0 0 var(--glow-blur-base) var(--glow-color-rgba-strong),
+               0 0 var(--glow-blur-wide) var(--glow-color-rgba-wide);
+}
+
+
+/* Cat Stage Specifics */
+.cat-stage { flex-direction: column; }
+.cat-icon {
+  font-size: 4rem;
+  display: inline-block;
+  animation: catBob 1.2s ease-in-out infinite alternate;
+  margin-bottom: 0.5rem;
+  transition: text-shadow 0.3s ease-out, filter 0.3s ease-out;
+}
+.ellipsis {
+  font-size: 2rem;
+  font-weight: bold;
+  display: inline-block;
+  animation: pulsingEllipsis var(--cat-pulse-duration) ease-in-out infinite;
+}
+@keyframes catBob { from { transform: translateY(0px) rotate(-2deg); } to { transform: translateY(-8px) rotate(2deg); } }
+@keyframes pulsingEllipsis { 0%, 100% { opacity: 0.4; transform: scale(0.95); } 50% { opacity: 1; transform: scale(1.05); } }
+
+/* Server Name Stage Specifics */
+.server-stage-wow { flex-direction: row; gap: 1.5rem; }
+.avatar-container-wow { position: relative; }
+.text-container-wow {
+  position: relative;
+  background-color: transparent; /* Đảm bảo không có nền */
+  border: none; /* Đảm bảo không có viền */
+}
+.server-avatar-wow {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--border-color);
+  background-color: var(--card-background);
+  display: block;
+  opacity: 0;
+  transform: scale(0.7) rotate(-10deg);
+  transition: filter 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+.server-name-wow {
+  color: var(--secondary-color);
+  font-size: 2.2em;
+  font-weight: 600;
+  margin: 0;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(-40px) scale(0.8);
+  transition: text-shadow 0.3s ease-out;
+}
+/* Animations */
+.server-stage-wow.visible .server-avatar-wow { animation: wowAvatarAppearBounce var(--wow-avatar-appear-duration) cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards, wowAvatarSlideLeft var(--wow-total-duration) ease-in-out forwards var(--wow-avatar-move-delay); }
+.server-stage-wow.visible .server-name-wow { animation: wowTextSlideOut var(--wow-text-slide-duration) ease-out forwards var(--wow-text-appear-delay); }
+.intro-stage.hiding .server-avatar-wow { animation: wowAvatarSlideCenter var(--wow-hide-duration) ease-in forwards; }
+.intro-stage.hiding .server-name-wow { animation: wowTextSlideIn var(--wow-hide-duration) ease-in forwards; }
+
+@keyframes wowAvatarAppearBounce { 0% { opacity: 0; transform: scale(0.7) rotate(-10deg); filter: none; } 60% { opacity: 1; transform: scale(1.1) rotate(5deg); filter: drop-shadow(0 0 var(--glow-blur-base) var(--glow-color));} 100% { opacity: 1; transform: scale(1) rotate(0deg); filter: drop-shadow(0 0 var(--glow-blur-base) var(--glow-color));} }
+@keyframes wowAvatarSlideLeft { from { transform: translateX(0) scale(1); filter: drop-shadow(0 0 var(--glow-blur-base) var(--glow-color));} to   { transform: translateX(calc(-1 * var(--wow-move-distance) / 2)) scale(1); filter: drop-shadow(0 0 var(--glow-blur-base) var(--glow-color));} }
+
+@keyframes wowTextSlideOut {
+  from {
+    opacity: 0;
+    transform: translateX(-40px) scale(0.8);
+    text-shadow: none;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(calc(var(--wow-move-distance) / 2)) scale(1);
+    text-shadow: 0 0 var(--glow-blur-base) var(--glow-color-rgba-strong),
+                 0 0 var(--glow-blur-wide) var(--glow-color-rgba-wide);
+  }
+}
+
+@keyframes wowTextSlideIn {
+  from {
+    opacity: 1;
+    transform: translateX(calc(var(--wow-move-distance) / 2)) scale(1);
+    text-shadow: 0 0 var(--glow-blur-base) var(--glow-color-rgba-strong),
+                 0 0 var(--glow-blur-wide) var(--glow-color-rgba-wide);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-40px) scale(0.8);
+    text-shadow: none;
+  }
+}
+
+@keyframes wowAvatarSlideCenter { from { opacity: 1; transform: translateX(calc(-1 * var(--wow-move-distance) / 2)) scale(1); filter: drop-shadow(0 0 var(--glow-blur-base) var(--glow-color));} to { opacity: 0; transform: translateX(0) scale(0.8); filter: none;} }
+/* -------------------------------------------------- */
+
+
+/* --- Main Content Area -- */
+.main-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity var(--content-fade-in-duration) ease-out,
+              transform var(--content-fade-in-duration) ease-out;
+  pointer-events: none;
+  position: relative;
+  z-index: 1;
+}
+.main-content.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Search Interaction Area */
+.search-interaction-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 550px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1rem; /* Giảm khoảng cách dưới */
+}
+
+/* Show All Toggle Button */
+.show-all-toggle-button {
+  background-color: transparent;
+  border: 1px solid rgba(var(--border-color-rgb), 0.5);
+  color: var(--subtext-color);
+  padding: 0.3rem;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease, border-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.8rem;
+  opacity: 0;
+  animation: fadeInDelayed 0.5s ease forwards 0.3s;
+}
+.show-all-toggle-button:hover:not(:disabled) {
+  background-color: rgba(var(--primary-color-rgb), 0.1);
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+.show-all-toggle-button.active {
+  background-color: rgba(var(--primary-color-rgb), 0.2);
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+.show-all-toggle-button:active:not(:disabled) { transform: scale(0.95); }
+.show-all-toggle-button:disabled { opacity: 0.4; cursor: not-allowed; }
+
+@keyframes fadeInDelayed { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Results Display Area */
+.results-display-area {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
+/* Loading/Error/Info Messages */
+.loading { color: var(--loading-color); text-align: center; font-style: italic; font-size: 1.1em; opacity: 0; animation: simpleFadeIn 0.5s ease forwards; margin-top: 1rem; }
+.error {
+    color: var(--error-color);
+    text-align: center;
+    background-color: rgba(var(--error-color-rgb, 243, 139, 168), 0.1);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--error-color);
+    width: 90%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0;
+    animation: simpleFadeIn 0.5s ease forwards;
+    margin-top: 1rem;
+    box-shadow: 0 2px 8px rgba(var(--error-color-rgb, 243, 139, 168), 0.15);
+}
+.scan-info { text-align: center; font-size: 0.9em; color: var(--subtext-color); margin-bottom: 1.2rem; }
+.results-container { display: grid; gap: 1.5rem; width: 100%; }
+@keyframes simpleFadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* --- START ADDING LOADING DOTS CSS --- */
+.loading-indicator-dots {
+    text-align: center;
+    margin-top: 1rem; /* Khoảng cách với nút toggle */
+    font-size: 1.8em; /* Kích thước dấu chấm */
+    line-height: 1;
+    color: var(--loading-color); /* Màu loading */
+    width: 100%;
+    max-width: 550px; /* Giống search bar */
+}
+
+.loading-indicator-dots span {
+    animation: loadingDotsAnimation 1.4s infinite ease-in-out both;
+    display: inline-block; /* Cần thiết cho animation delay */
+    opacity: 0; /* Bắt đầu ẩn */
+}
+
+/* Delay animation cho từng dấu chấm */
+.loading-indicator-dots span:nth-child(1) { animation-delay: -0.32s; }
+.loading-indicator-dots span:nth-child(2) { animation-delay: -0.16s; }
+.loading-indicator-dots span:nth-child(3) { animation-delay: 0s; }
+
+@keyframes loadingDotsAnimation {
+  0%, 80%, 100% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  40% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+/* --- END ADDING LOADING DOTS CSS --- */
+
+/* Home and Not Found Pages */
+.home-page, .not-found-page {
+  text-align: center;
+  padding: 2rem;
+  margin-top: 3rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+.home-page h1, .not-found-page h2 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  font-size: 2em;
+}
+.home-page code {
+  background-color: rgba(var(--card-background-rgb), 0.5);
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-family: monospace;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  margin-top: auto;
+  padding: 1rem 0;
+  border-top: 1px solid rgba(var(--border-color-rgb), 0.3);
+  font-size: 0.85em;
+  color: var(--subtext-color);
+  width: 100%;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  position: relative;
+  z-index: 2;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .App { padding: 1rem; }
+  .cat-icon { font-size: 3rem; }
+  .ellipsis { font-size: 1.5rem; }
+  :root { --wow-move-distance: 60px; }
+  .server-avatar-wow { width: 80px; height: 80px; }
+  .server-name-wow { font-size: 1.8em; }
+  .server-stage-wow { gap: 1rem; }
+  .home-page h1, .not-found-page h2 { font-size: 1.7em; }
+  .error { width: 100%; }
+  footer { margin-top: 2rem; padding: 0.8rem 0; }
+  .show-all-toggle-button { padding: 0.25rem; width: 36px; height: 36px; }
+  .results-display-area { margin-top: 1rem; }
+}
+@media (max-width: 480px) {
+    .home-page h1, .not-found-page h2 { font-size: 1.5em; }
+    .server-name-wow { font-size: 1.6em; }
+    .server-avatar-wow { width: 70px; height: 70px; }
+    .cat-icon { font-size: 2.5rem; }
+    .ellipsis { font-size: 1.3rem; }
+}
+/* --- END OF FILE website/client/src/components/styles/App.css --- */
