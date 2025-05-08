@@ -85,7 +85,7 @@ router.get('/scan/:guildId/user', async (req, res) => {
                 ORDER BY display_name_at_scan -- Sắp xếp để kết quả nhất quán hơn
                 LIMIT 10; -- Giới hạn kết quả tìm theo tên
             `;
-            queryParams = [latestScanId, `%${searchTermLower}%`]; // Thêm % cho ILIKE
+            queryParams = [latestScanId, `%${searchTermLower}%`];
         }
     }
     

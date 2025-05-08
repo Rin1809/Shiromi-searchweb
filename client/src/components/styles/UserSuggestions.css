@@ -7,7 +7,6 @@
     overflow-y: auto;
     margin-top: 0.5rem; /* Khoảng cách với search bar/nút toggle */
     border-radius: 8px; /* Bo góc nhẹ nếu muốn có viền (hiện tại không có) */
-    /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); */ /* Bỏ bóng nếu muốn nằm phẳng trên nền */
     animation: fadeInSuggestions 0.3s ease-out;
   }
   
@@ -34,13 +33,13 @@
     border-radius: 50%;
     margin-right: 0.8rem;
     object-fit: cover;
-    background-color: rgba(255, 255, 255, 0.05); /* Nền nhẹ */
+    background-color: rgba(255, 255, 255, 0.05);
   }
   
   .suggestion-name {
     font-size: 0.95em;
-    color: var(--text-color); /* Màu text từ biến global */
-    flex-grow: 1; /* Để tên chiếm hết không gian còn lại */
+    color: var(--text-color); 
+    flex-grow: 1; 
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -57,13 +56,13 @@
     }
   }
   
-  /* Custom scrollbar cho danh sách gợi ý (tùy chọn) */
+  /* Custom scrollbar cho danh sách gợi ý  */
   .user-suggestions-container::-webkit-scrollbar {
     width: 6px;
   }
   
   .user-suggestions-container::-webkit-scrollbar-track {
-    background: transparent; /* Nền trong suốt */
+    background: transparent; 
   }
   
   .user-suggestions-container::-webkit-scrollbar-thumb {

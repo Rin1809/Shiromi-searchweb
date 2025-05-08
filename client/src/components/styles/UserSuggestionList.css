@@ -5,11 +5,11 @@
   left: 0;
   right: 0;
   width: 100%;
-  max-width: 550px; /* Giống max-width của search bar */
+  max-width: 550px; /* max-width của search bar */
   backdrop-filter: blur(8px); /* Hiệu ứng kính mờ */
 
-  border: 1px solid rgba(var(--border-color-rgb), 0.3); /* Viền mờ hơn */
-  border-top: none; /* Bỏ viền trên để liền mạch với nút toggle */
+  border: 1px solid rgba(var(--border-color-rgb), 0.3); /* Viền mờ  */
+  border-top: none; /*  để liền mạch với nút toggle */
   border-radius: 0 0 12px 12px; /* Bo góc dưới */
   margin-top: -1px; /* Hơi chồng lên nút để che viền */
   max-height: 350px;
@@ -59,8 +59,7 @@ border-bottom: none;
 
 .suggestion-item:hover,
 .suggestion-item:focus {
-/* background-color: rgba(137, 180, 250, 0.15); */
-background-color: rgba(var(--primary-color-rgb), 0.12); /* Màu hover nhẹ nhàng hơn */
+background-color: rgba(var(--primary-color-rgb), 0.12); /* Màu hover nhẹ nhàn*/
 outline: none;
 }
 
@@ -70,7 +69,7 @@ height: 32px;
 border-radius: 50%;
 margin-right: 0.85rem;
 object-fit: cover;
-background-color: rgba(255, 255, 255, 0.08); /* Nền nhẹ hơn */
+background-color: rgba(255, 255, 255, 0.08); 
 border: 1px solid rgba(var(--border-color-rgb), 0.2); /* Viền avatar mờ */
 }
 

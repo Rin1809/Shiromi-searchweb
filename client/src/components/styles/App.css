@@ -2,7 +2,7 @@
 :root {
 
   --glow-color: #FFE0E0;
-  --glow-color-rgb: 255, 224, 224; /* Thêm RGB */
+  --glow-color-rgb: 255, 224, 224; /* RGB */
   --glow-color-rgba-strong: rgba(255, 224, 224, 0.85); /* Brighter base */
   --glow-color-rgba-wide: rgba(255, 224, 224, 0.6);  /* Wider, softer spread */
   --glow-blur-base: 40px; /* Increased base blur */
@@ -12,28 +12,28 @@
 
   /* --- Màu sắc Theme Vũ Trụ & Catppuccin Macchiato --- */
   --background-color: #0c0e1a;
-  --background-color-rgb: 12, 14, 26; /* Thêm RGB */
+  --background-color-rgb: 12, 14, 26; /* RGB */
   --light-source-color-1: #FFFFFF;
   --light-source-color-2: #525252;
   --light-source-color-3: #1C1C1C;
 
   --text-color: #cdd6f4;
-  --text-color-rgb: 205, 214, 244; /* Thêm RGB */
+  --text-color-rgb: 205, 214, 244; /* RGB */
   --card-background: #1e1e2e;
-  --card-background-rgb: 30, 30, 46; /* Thêm RGB */
+  --card-background-rgb: 30, 30, 46; /* RGB */
   --border-color: #45475a;
-  --border-color-rgb: 69, 71, 90; /* Thêm RGB */
+  --border-color-rgb: 69, 71, 90; /* RGB */
   --primary-color: #ffaaaa; /* Mauve */
-  --primary-color-rgb: 179, 135, 211; /* Thêm RGB */
+  --primary-color-rgb: 179, 135, 211; /* RGB */
   --secondary-color: #f5c2e7; /* Pink */
-  --secondary-color-rgb: 245, 194, 231; /* Thêm RGB */
+  --secondary-color-rgb: 245, 194, 231; /* RGB */
   --error-color: #f38ba8;   /* Red */
-  --error-color-rgb: 243, 139, 168; /* Thêm RGB */
+  --error-color-rgb: 243, 139, 168; /*  RGB */
   --success-color: #a6e3a1; /* Green */
   --loading-color: #f9e2af; /* Yellow */
   --info-color: #89b4fa;    /* Blue */
   --subtext-color: #a6adc8; /* Subtext0 */
-  --subtext-color-rgb: 166, 173, 200; /* Thêm RGB */
+  --subtext-color-rgb: 166, 173, 200; /*RGB */
 
   /* --- Thời gian animation --- */
   --intro-stage-fade-duration: 0.6s;
@@ -187,8 +187,8 @@ body {
 .avatar-container-wow { position: relative; }
 .text-container-wow {
   position: relative;
-  background-color: transparent; /* Đảm bảo không có nền */
-  border: none; /* Đảm bảo không có viền */
+  background-color: transparent; /* không có nền */
+  border: none; /* không có viền */
 }
 .server-avatar-wow {
   width: 100px;
@@ -282,7 +282,7 @@ body {
   position: relative;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 1rem; /* Giảm khoảng cách dưới */
+  margin-bottom: 1rem;
 }
 
 /* Show All Toggle Button */
