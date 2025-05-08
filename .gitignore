@@ -1,46 +1,21 @@
-# ==========================================
-#      Shiromi Website (.gitignore)
-# ==========================================
 
-# ------------------------------------------
-# Dependencies (QUAN TRỌNG!)
-# ------------------------------------------
-# Bỏ qua thư mục node_modules ở cả client và server
-# Đường dẫn tính từ gốc của repo shiromi-website
 /client/node_modules/
 /server/node_modules/
-# Bỏ qua cả thư mục node_modules ở gốc (nếu có)
 /node_modules/
 
-# ------------------------------------------
-# Build Output (Client - Vite)
-# ------------------------------------------
-# Thư mục chứa kết quả build của Vite
+
 client/dist/
-# Cache và các file tạm của Vite
 client/.vite/
 
-# ------------------------------------------
-# Environment Variables (QUAN TRỌNG!)
-# ------------------------------------------
-# KHÔNG BAO GIỜ commit file .env chứa secrets!
-# File .env của server
 server/.env
-# Các file .env local khác (thường dùng cho development)
 server/.env.*.local
 
-# Có thể commit file ví dụ nếu muốn
 !server/.env.example
 !server/.env.sample
 
-# Nếu client cũng có file .env riêng (Vite thường dùng VITE_ prefix)
-# client/.env
-# client/.env.*.local
-# !client/.env.example
 
-# ------------------------------------------
-# Logs
-# ------------------------------------------
+
+
 logs/
 *.log
 npm-debug.log*
@@ -49,24 +24,19 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-# ------------------------------------------
-# Runtime Data
-# ------------------------------------------
+
+
 pids/
 *.pid
 *.seed
 *.pid.lock
 
-# ------------------------------------------
-# Directory Structure Files (generated)
-# ------------------------------------------
-# Thư mục coverage từ testing tools
+
 coverage/
 *.lcov
 
-# ------------------------------------------
-# OS generated files
-# ------------------------------------------
+
+
 .DS_Store
 .DS_Store?
 ._*
@@ -75,10 +45,7 @@ coverage/
 ehthumbs.db
 Thumbs.db
 
-# ------------------------------------------
-# Editor directories and files
-# ------------------------------------------
-# VSCode
+
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
@@ -86,29 +53,14 @@ Thumbs.db
 !.vscode/extensions.json
 *.code-workspace
 
-# Sublime Text
+
 *.sublime-workspace
 *.sublime-project
 
-# IntelliJ/WebStorm
 .idea/
 *.iws
 
-# ------------------------------------------
-# Miscellaneous
-# ------------------------------------------
+
 .node_repl_history
-# Các file nén tạm
 *.tgz
-# File swap của Vim
 *.swp
-
-# Bỏ qua file lock của npm nếu không muốn commit (nhưng thường nên commit)
-# package-lock.json # Bỏ comment dòng này nếu KHÔNG muốn commit file lock
-# yarn.lock # Bỏ comment dòng này nếu dùng Yarn và KHÔNG muốn commit file lock
-# pnpm-lock.yaml # Bỏ comment dòng này nếu dùng PNPM và KHÔNG muốn commit file lock
-
-# Bỏ qua các file build của TypeScript nếu bạn compile server từ TS sang JS
-# server/dist/
-# server/**/*.js # (Nếu bạn chỉ code .ts và compile)
-# server/**/*.js.map # (Source maps)
