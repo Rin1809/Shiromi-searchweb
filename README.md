@@ -457,3 +457,13 @@ Shiromi-web/
 *   **目的:** このプロジェクトは情報提供および検索目的で構築されています。
 
 </details>
+
+
+## Image 1:
+
+![image](https://github.com/user-attachments/assets/9173bcd7-841c-4479-9bab-f5832927aa1d)
+
+
+![image](https://github.com/user-attachments/assets/da8d8a77-8bdf-4cc7-9ba6-8d5910c4e898)
+
+
