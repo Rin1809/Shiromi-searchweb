@@ -1,4 +1,4 @@
-# Shiromi-Web - Giao Diện Tra Cứu Dữ Liệu Quét Discord ᓚᘏᗢ
+# Shiromi-Web - Scan User Data Lookup Interface  (Shiromi) ᓚᘏᗢ
 
 <!-- Vietnamese -->
 <details>
